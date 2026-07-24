@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+	--background: #0c0a14;
+	--background-alt: #13101f;
+	--background-surface: #1a1528;
+	--foreground: #e8e2d6;
+	--foreground-muted: #a89f8f;
+	--accent-gold: #d4a853;
+	--accent-gold-light: #e8c875;
+	--accent-gold-dark: #b08930;
+	--accent-purple: #8b5cf6;
+	--accent-purple-light: #a78bfa;
+	--accent-crimson: #dc2626;
+	--border: #2a2438;
+	--border-light: #3d3450;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--background: #f5f0e8;
+		--background-alt: #ebe4d6;
+		--background-surface: #faf7f0;
+		--foreground: #1a1528;
+		--foreground-muted: #5c5347;
+		--accent-gold: #b08930;
+		--accent-gold-light: #c49b3d;
+		--accent-gold-dark: #8a6b1e;
+		--accent-purple: #7c3aed;
+		--accent-purple-light: #6d28d9;
+		--accent-crimson: #b91c1c;
+		--border: #d4cbb8;
+		--border-light: #c4b99e;
+	}
+}
+
+@theme inline {
+	--color-background: var(--background);
+	--color-background-alt: var(--background-alt);
+	--color-background-surface: var(--background-surface);
+	--color-foreground: var(--foreground);
+	--color-foreground-muted: var(--foreground-muted);
+	--color-gold: var(--accent-gold);
+	--color-gold-light: var(--accent-gold-light);
+	--color-gold-dark: var(--accent-gold-dark);
+	--color-purple: var(--accent-purple);
+	--color-purple-light: var(--accent-purple-light);
+	--color-crimson: var(--accent-crimson);
+	--color-border: var(--border);
+	--color-border-light: var(--border-light);
+	--font-heading: var(--font-heading);
+	--font-body: var(--font-body);
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}

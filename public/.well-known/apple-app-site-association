@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "UVA5J4S6NH.com.saentari.adventura",
+        "paths": ["/auth/callback"]
+      }
+    ]
+  }
+}

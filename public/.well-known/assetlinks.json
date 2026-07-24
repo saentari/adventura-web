@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.saentari.adventura",
+      "sha256_cert_fingerprints": [
+        "DE:24:31:4F:DA:58:CC:18:CA:C6:31:9B:CC:79:6A:E4:13:B8:0E:CD:E7:54:FA:61:9A:08:80:BC:22:4B:BD:FF",
+        "C8:1E:7F:25:4F:93:5A:FB:5F:11:E6:91:01:78:00:43:42:CF:3D:BB:18:04:F5:4F:13:B9:10:42:CB:3D:4B:16"
+      ]
+    }
+  }
+]
