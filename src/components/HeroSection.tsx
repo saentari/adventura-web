@@ -30,9 +30,21 @@ export default function HeroSection() {
 
 				<GoldDivider />
 
+				{/* Primary action: play right now in the browser, no install. */}
+				<div className="mt-8">
+					<a
+						href={LINKS.webApp}
+						className="inline-block px-8 py-4 bg-gold text-background font-semibold text-lg rounded-lg hover:bg-gold-light transition-colors"
+					>
+						Play in your browser
+					</a>
+				</div>
+
+				<p className="mt-6 text-sm text-foreground-muted">or get the app</p>
+
 				<div
 					id="download"
-					className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8 scroll-mt-20"
+					className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-4 scroll-mt-20"
 				>
 					<a
 						href={LINKS.appStore}

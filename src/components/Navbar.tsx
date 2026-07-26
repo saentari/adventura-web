@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { LINKS } from "@/lib/links";
 
 export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState(false);
@@ -33,9 +34,15 @@ export default function Navbar() {
 					</Link>
 					<a
 						href="#download"
-						className="px-5 py-2 bg-gold text-background font-semibold rounded-lg hover:bg-gold-light transition-colors"
+						className="text-foreground-muted hover:text-foreground transition-colors"
 					>
 						Download
+					</a>
+					<a
+						href={LINKS.webApp}
+						className="px-5 py-2 bg-gold text-background font-semibold rounded-lg hover:bg-gold-light transition-colors"
+					>
+						Play
 					</a>
 				</div>
 
@@ -84,9 +91,16 @@ export default function Navbar() {
 						<a
 							href="#download"
 							onClick={() => setMenuOpen(false)}
-							className="px-5 py-2.5 bg-gold text-background font-semibold rounded-lg hover:bg-gold-light transition-colors text-center"
+							className="text-foreground-muted hover:text-foreground transition-colors py-2"
 						>
 							Download
+						</a>
+						<a
+							href={LINKS.webApp}
+							onClick={() => setMenuOpen(false)}
+							className="px-5 py-2.5 bg-gold text-background font-semibold rounded-lg hover:bg-gold-light transition-colors text-center"
+						>
+							Play
 						</a>
 					</div>
 				</div>

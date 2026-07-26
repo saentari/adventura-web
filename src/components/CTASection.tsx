@@ -15,8 +15,19 @@ export default function CTASection() {
 				<GoldDivider />
 				<p className="mt-4 text-foreground-muted mb-10 text-lg">
 					Join adventurers managing their characters with Adventura.
-					Free to download on iOS and Android.
+					Play free in your browser, or on iOS and Android.
 				</p>
+
+				<div className="mb-8">
+					<a
+						href={LINKS.webApp}
+						className="inline-block px-8 py-4 bg-gold text-background font-semibold text-lg rounded-lg hover:bg-gold-light transition-colors"
+					>
+						Play in your browser
+					</a>
+				</div>
+
+				<p className="text-sm text-foreground-muted mb-4">or get the app</p>
 
 				<div className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
 					<a
