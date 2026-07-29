@@ -1,7 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
-import Image from "next/image";
-import GoldDivider from "@/components/GoldDivider";
 import { LINKS } from "@/lib/links";
 import { getSupabase } from "@/lib/supabase";
 import { useSearchParams } from "next/navigation";
@@ -42,6 +41,78 @@ function getContent(flow: string | null) {
 			};
 	}
 }
+
+/** Shell every state on this route shares: one centred card on the page. */
+function CallbackCard({
+	title,
+	children,
+}: {
+	title: string;
+	children: React.ReactNode;
+}) {
+	return (
+		<div className="mx-auto flex min-h-[70vh] max-w-content items-center justify-center px-4 py-4 medium:px-6">
+			<div className="w-full max-w-md rounded-md border border-line-soft bg-card px-6 py-10 text-center shadow-[var(--shadow-card)]">
+				<h1 className="font-brand text-header-lg text-ink">{title}</h1>
+				{children}
+			</div>
+		</div>
+	);
+}
+
+/** The two store badges plus the browser fallback, shown once the deep link
+ *  has had its chance and nothing happened. */
+function AppHandoff() {
+	return (
+		<div className="mt-8 space-y-4">
+			<p className="text-body-sm text-ink-muted">
+				Open Adventura on your device to continue.
+			</p>
+
+			<div className="flex flex-col items-center justify-center gap-3 medium:flex-row">
+				<a
+					href={LINKS.appStore}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="transition-opacity hover:opacity-80"
+				>
+					<img
+						src="/images/apple_app_store.png"
+						alt="Download on the App Store"
+						width={150}
+						height={50}
+					/>
+				</a>
+				<a
+					href={LINKS.playStore}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="transition-opacity hover:opacity-80"
+				>
+					<img
+						src="/images/google_play.png"
+						alt="Get it on Google Play"
+						width={168}
+						height={50}
+					/>
+				</a>
+			</div>
+
+			<p className="text-body-sm text-ink-muted">
+				or{" "}
+				<a
+					href={LINKS.webApp}
+					className="text-link underline transition-colors hover:text-link-hover"
+				>
+					continue in your browser
+				</a>
+			</p>
+		</div>
+	);
+}
+
+const FIELD_CLASSES =
+	"w-full rounded-sm border border-line bg-surface px-4 py-3 text-body text-ink placeholder:text-ink-muted focus:border-link focus:outline-none disabled:opacity-50";
 
 function PasswordResetForm({ tokenHash }: { tokenHash: string }) {
 	const [password, setPassword] = useState("");
@@ -90,147 +161,93 @@ function PasswordResetForm({ tokenHash }: { tokenHash: string }) {
 
 	if (success) {
 		return (
-			<div className="min-h-[60vh] flex items-center justify-center px-6 py-16">
-				<div className="max-w-md w-full text-center">
-					<div className="mb-6 text-5xl">&#x2694;&#xFE0F;</div>
-
-					<h1 className="font-heading text-3xl font-bold mb-2 text-foreground">
-						Password Updated
-					</h1>
-
-					<GoldDivider />
-
-					<p className="mt-4 text-foreground-muted leading-relaxed">
-						Your password has been changed successfully. You can now sign in
-						with your new password.
-					</p>
-
-					<div className="mt-8 space-y-4">
-						<p className="text-foreground-muted text-sm">
-							Open Adventura on your device to sign in.
-						</p>
-
-						<div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-							<a
-								href={LINKS.appStore}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Image
-									src="/images/apple_app_store.png"
-									alt="Download on the App Store"
-									width={150}
-									height={50}
-									className="hover:opacity-80 transition-opacity"
-								/>
-							</a>
-							<a
-								href={LINKS.playStore}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Image
-									src="/images/google_play.png"
-									alt="Get it on Google Play"
-									width={168}
-									height={50}
-									className="hover:opacity-80 transition-opacity"
-								/>
-							</a>
-						</div>
-
-						<p className="text-foreground-muted text-sm">
-							or{" "}
-							<a
-								href={LINKS.webApp}
-								className="text-gold hover:text-gold-light underline transition-colors"
-							>
-								continue in your browser
-							</a>
-						</p>
-					</div>
-				</div>
-			</div>
+			<CallbackCard title="Password Updated">
+				<p className="mt-4 text-body text-ink-muted">
+					Your password has been changed successfully. You can now sign in with
+					your new password.
+				</p>
+				<AppHandoff />
+			</CallbackCard>
 		);
 	}
 
 	return (
-		<div className="min-h-[60vh] flex items-center justify-center px-6 py-16">
-			<div className="max-w-md w-full text-center">
-				<div className="mb-6 text-5xl">&#x2694;&#xFE0F;</div>
+		<CallbackCard title="Set New Password">
+			<p className="mt-4 text-body text-ink-muted">
+				Enter your new password below.
+			</p>
 
-				<h1 className="font-heading text-3xl font-bold mb-2 text-foreground">
-					Set New Password
-				</h1>
-
-				<GoldDivider />
-
-				<p className="mt-4 text-foreground-muted leading-relaxed">
-					Enter your new password below.
-				</p>
-
-				<form onSubmit={handleSubmit} className="mt-8 space-y-4 text-left">
-					<div>
-						<label className="block text-sm font-medium text-foreground-muted mb-2">
-							New Password
-						</label>
-						<div className="relative">
-							<input
-								type={showPassword ? "text" : "password"}
-								value={password}
-								onChange={(e) => {
-									setPassword(e.target.value);
-									setError(null);
-								}}
-								placeholder="At least 6 characters"
-								disabled={isLoading}
-								className="w-full px-4 py-3 bg-background-surface border border-accent-border rounded-lg text-foreground placeholder:text-foreground-muted/50 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-50"
-								autoFocus
-							/>
-							<button
-								type="button"
-								onClick={() => setShowPassword(!showPassword)}
-								className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground-muted hover:text-foreground transition-colors"
-							>
-								{showPassword ? "Hide" : "Show"}
-							</button>
-						</div>
-					</div>
-
-					<div>
-						<label className="block text-sm font-medium text-foreground-muted mb-2">
-							Confirm Password
-						</label>
+			<form onSubmit={handleSubmit} className="mt-8 space-y-4 text-left">
+				<div>
+					<label
+						htmlFor="new-password"
+						className="mb-2 block text-body-sm font-medium text-ink"
+					>
+						New Password
+					</label>
+					<div className="relative">
 						<input
+							id="new-password"
 							type={showPassword ? "text" : "password"}
-							value={confirmPassword}
+							value={password}
 							onChange={(e) => {
-								setConfirmPassword(e.target.value);
+								setPassword(e.target.value);
 								setError(null);
 							}}
-							placeholder="Re-enter your password"
+							placeholder="At least 6 characters"
 							disabled={isLoading}
-							onKeyDown={(e) => {
-								if (e.key === "Enter") handleSubmit(e);
-							}}
-							className="w-full px-4 py-3 bg-background-surface border border-accent-border rounded-lg text-foreground placeholder:text-foreground-muted/50 focus:outline-none focus:border-gold/50 transition-colors disabled:opacity-50"
+							className={FIELD_CLASSES}
+							autoFocus
 						/>
+						<button
+							type="button"
+							onClick={() => setShowPassword(!showPassword)}
+							className="absolute top-1/2 right-3 -translate-y-1/2 text-body-sm text-ink-muted transition-colors hover:text-ink"
+						>
+							{showPassword ? "Hide" : "Show"}
+						</button>
 					</div>
+				</div>
 
-					{error && (
-						<p className="text-red-400 text-sm text-center">{error}</p>
-					)}
-
-					<button
-						type="submit"
-						disabled={isLoading}
-						className="w-full px-5 py-3 bg-gold text-background font-medium rounded-lg hover:bg-gold-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+				<div>
+					<label
+						htmlFor="confirm-password"
+						className="mb-2 block text-body-sm font-medium text-ink"
 					>
-						{isLoading ? "Updating..." : "Update Password"}
-					</button>
-				</form>
-			</div>
-		</div>
+						Confirm Password
+					</label>
+					<input
+						id="confirm-password"
+						type={showPassword ? "text" : "password"}
+						value={confirmPassword}
+						onChange={(e) => {
+							setConfirmPassword(e.target.value);
+							setError(null);
+						}}
+						placeholder="Re-enter your password"
+						disabled={isLoading}
+						onKeyDown={(e) => {
+							if (e.key === "Enter") handleSubmit(e);
+						}}
+						className={FIELD_CLASSES}
+					/>
+				</div>
+
+				{error && (
+					<p role="alert" className="text-center text-body-sm text-danger">
+						{error}
+					</p>
+				)}
+
+				<button
+					type="submit"
+					disabled={isLoading}
+					className="w-full rounded-[10px] border border-button-line bg-button px-5 py-3 text-body font-medium text-button-ink transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
+				>
+					{isLoading ? "Updating..." : "Update Password"}
+				</button>
+			</form>
+		</CallbackCard>
 	);
 }
 
@@ -262,72 +279,17 @@ function DeepLinkRedirect() {
 	const { title, message } = getContent(flow);
 
 	return (
-		<div className="min-h-[60vh] flex items-center justify-center px-6 py-16">
-			<div className="max-w-md w-full text-center">
-				<div className="mb-6 text-5xl">&#x2694;&#xFE0F;</div>
+		<CallbackCard title={title}>
+			<p className="mt-4 text-body text-ink-muted">{message}</p>
 
-				<h1 className="font-heading text-3xl font-bold mb-2 text-foreground">
-					{title}
-				</h1>
-
-				<GoldDivider />
-
-				<p className="mt-4 text-foreground-muted leading-relaxed">
-					{message}
+			{deepLinkAttempted ? (
+				<AppHandoff />
+			) : (
+				<p className="mt-8 animate-pulse text-body-sm text-ink-muted">
+					Redirecting to Adventura...
 				</p>
-
-				{deepLinkAttempted ? (
-					<div className="mt-8 space-y-4">
-						<p className="text-foreground-muted text-sm">
-							Open Adventura on your device to continue.
-						</p>
-
-						<div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-							<a
-								href={LINKS.appStore}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Image
-									src="/images/apple_app_store.png"
-									alt="Download on the App Store"
-									width={150}
-									height={50}
-									className="hover:opacity-80 transition-opacity"
-								/>
-							</a>
-							<a
-								href={LINKS.playStore}
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								<Image
-									src="/images/google_play.png"
-									alt="Get it on Google Play"
-									width={168}
-									height={50}
-									className="hover:opacity-80 transition-opacity"
-								/>
-							</a>
-						</div>
-
-						<p className="text-foreground-muted text-sm">
-							or{" "}
-							<a
-								href={LINKS.webApp}
-								className="text-gold hover:text-gold-light underline transition-colors"
-							>
-								continue in your browser
-							</a>
-						</p>
-					</div>
-				) : (
-					<p className="mt-8 text-foreground-muted text-sm animate-pulse">
-						Redirecting to Adventura...
-					</p>
-				)}
-			</div>
-		</div>
+			)}
+		</CallbackCard>
 	);
 }
 
@@ -347,8 +309,8 @@ export default function AuthCallbackPage() {
 	return (
 		<Suspense
 			fallback={
-				<div className="min-h-[60vh] flex items-center justify-center">
-					<p className="text-foreground-muted animate-pulse">Loading...</p>
+				<div className="flex min-h-[70vh] items-center justify-center">
+					<p className="animate-pulse text-body text-ink-muted">Loading...</p>
 				</div>
 			}
 		>

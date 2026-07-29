@@ -1,63 +1,53 @@
-# Next.js Framework Starter
+# adventura-web
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/next-starter-template)
+Marketing site for Adventura — [adventura.gg](https://adventura.gg).
 
-<!-- dash-content-start -->
+Next.js 16 (App Router) on Cloudflare Workers via OpenNext. The app itself is a
+separate Flutter project (`../adventura`) served at `app.adventura.gg`.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). It's deployed on Cloudflare Workers as a [static website](https://developers.cloudflare.com/workers/static-assets/).
+## What lives here
 
-This template uses [OpenNext](https://opennext.js.org/) via the [OpenNext Cloudflare adapter](https://opennext.js.org/cloudflare), which works by taking the Next.js build output and transforming it, so that it can run in Cloudflare Workers.
+| Route | What it is |
+| :--- | :--- |
+| `/` | Home — the bento grid of product surfaces |
+| `/download` | iOS, Android and browser |
+| `/support` | FAQ and contact |
+| `/privacy`, `/terms` | Legal, sourced from `src/content/legal/` |
+| `/auth/callback` | **Functional.** Supabase email verification and password reset — deep-links into the native app on mobile, hands off to the web app on desktop |
 
-<!-- dash-content-end -->
+`/auth/callback` is the one page that does real work; the app's
+`AppUrls.authCallback*` point at it. Treat its behaviour as load-bearing.
 
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
+## Design system
 
-```bash
-npm create cloudflare@latest -- --template=cloudflare/templates/next-starter-template
-```
+The look is **ported from the Flutter app**, not invented here — the two are
+meant to read as one product. Tokens live in [`src/app/globals.css`](src/app/globals.css)
+and mirror `adventura/lib/core/design_system/`. See
+[CLAUDE.md](CLAUDE.md) for the mapping and the rules that go with it.
 
-A live public deployment of this template is available at [https://next-starter-template.templates.workers.dev](https://next-starter-template.templates.workers.dev)
-
-## Getting Started
-
-First, run:
+## Development
 
 ```bash
 npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
+npm run dev        # http://localhost:3000
+npm run check      # build + typecheck
+npm run preview    # build for Workers and run it locally
+npm run deploy     # build and ship to Cloudflare
 ```
 
-Then run the development server (using the package manager of your choice):
+Environment: `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+(`.env.local` / `.env.production`) — used only by the password-reset form.
+
+## Assets
+
+Card art is copied from the app's `assets/images/` and pre-sized at build
+authoring time, not at runtime — the Worker has no `IMAGES` binding, so
+`next/image` optimisation is off by design. To add an image:
 
 ```bash
-npm run dev
+magick source.png -resize 1024x1024 -quality 82 -define webp:method=6 public/images/name.webp
+magick source.png -resize 640x640   -quality 82 -define webp:method=6 public/images/name-640.webp
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Deploying To Production
-
-| Command                           | Action                                       |
-| :-------------------------------- | :------------------------------------------- |
-| `npm run build`                   | Build your production site                   |
-| `npm run preview`                 | Preview your build locally, before deploying |
-| `npm run build && npm run deploy` | Deploy your production site to Cloudflare    |
-| `npm wrangler tail`               | View real-time logs for all Workers          |
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Then reference it as `image={{ src: "name", alt: "…" }}` — `Card` builds the
+srcset from that basename.

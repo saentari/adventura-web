@@ -42,9 +42,9 @@ We'd love to hear it — email contact@saentari.com with a short description of 
 
 ## Get Adventura
 
-- [App Store](https://apps.apple.com/us/app/adventura-ttrpg/id6759534191) · [Google Play](https://play.google.com/store/apps/details?id=com.saentari.adventura) · [Play in your browser](https://app.adventura.gg)
+- [Download for iOS and Android](/download) · [Play in your browser](https://app.adventura.gg)
 - [Community](https://www.reddit.com/r/adventura/)
-- [Privacy Policy](/privacy) · [Terms & Conditions](/terms)
+- [Privacy Policy](/privacy) · [Terms of Use](/terms)
 
 ---
 

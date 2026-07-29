@@ -1,110 +1,75 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import Button from "./Button";
 import { LINKS } from "@/lib/links";
 
+/**
+ * Persistent top navigation, ported from the app's `AppShell` bar.
+ *
+ * Same anatomy: 72px tall, card-coloured with a hairline bottom border, the
+ * wordmark anchoring the left in the brand face, destinations in plain Satoshi
+ * beside it, and a single filled button at the right end. The active
+ * destination is marked by a 2px rule hanging off the bar's bottom edge rather
+ * than sitting under its label — it reads as marking the bar's boundary, and
+ * keeps the labels on the same baseline as the wordmark.
+ */
+
+const DESTINATIONS = [
+	{ label: "Download", href: "/download" },
+	{ label: "Support", href: "/support" },
+];
+
 export default function Navbar() {
-	const [menuOpen, setMenuOpen] = useState(false);
+	const pathname = usePathname();
 
 	return (
-		<nav className="sticky top-0 z-50 bg-background-surface/80 backdrop-blur-md border-b border-border">
-			<div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-				<Link href="/" className="flex items-center gap-3">
-					<Image
-						src="/adventura-logo.svg"
-						alt="Adventura"
-						width={28}
-						height={28}
-						className="invert"
-					/>
-					<span className="font-heading text-xl font-semibold text-foreground tracking-wide">
-						Adventura
-					</span>
+		<nav className="sticky top-0 z-50 border-b border-line bg-card">
+			<div className="mx-auto flex h-[72px] max-w-content items-center px-4 medium:px-6 expanded:px-8">
+				<Link
+					href="/"
+					className="font-brand text-header text-ink transition-opacity hover:opacity-80"
+				>
+					Adventura
 				</Link>
 
-				{/* Desktop nav */}
-				<div className="hidden md:flex items-center gap-8">
-					<Link
-						href="/support"
-						className="text-foreground-muted hover:text-foreground transition-colors"
-					>
-						Support
-					</Link>
-					<a
-						href="#download"
-						className="text-foreground-muted hover:text-foreground transition-colors"
-					>
-						Download
-					</a>
-					<a
-						href={LINKS.webApp}
-						className="px-5 py-2 bg-gold text-background font-semibold rounded-lg hover:bg-gold-light transition-colors"
-					>
-						Play
-					</a>
+				{/*
+					Hidden below the app's `medium` breakpoint, matching the mockup and
+					the app — which is a pass-through at those widths. Both destinations
+					are reachable from the home grid and the footer on a phone.
+				*/}
+				<div className="ml-10 hidden h-full items-stretch medium:flex">
+					{DESTINATIONS.map((destination) => {
+						const active =
+							pathname === destination.href ||
+							pathname.startsWith(`${destination.href}/`);
+
+						return (
+							<Link
+								key={destination.href}
+								href={destination.href}
+								aria-current={active ? "page" : undefined}
+								className="group relative flex items-center px-4 text-body text-ink-muted transition-colors hover:text-ink"
+							>
+								{destination.label}
+								<span
+									aria-hidden
+									className={`absolute inset-x-0 bottom-0 h-0.5 transition-colors ${
+										active ? "bg-ink" : "bg-transparent"
+									}`}
+								/>
+							</Link>
+						);
+					})}
 				</div>
 
-				{/* Mobile menu button */}
-				<button
-					onClick={() => setMenuOpen(!menuOpen)}
-					className="md:hidden p-2 text-foreground-muted hover:text-foreground transition-colors"
-					aria-label="Toggle menu"
-				>
-					<svg
-						className="w-6 h-6"
-						fill="none"
-						stroke="currentColor"
-						viewBox="0 0 24 24"
-					>
-						{menuOpen ? (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth={2}
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						) : (
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth={2}
-								d="M4 6h16M4 12h16M4 18h16"
-							/>
-						)}
-					</svg>
-				</button>
+				<div className="ml-auto">
+					<Button href={LINKS.webApp} size="sm">
+						Sign in
+					</Button>
+				</div>
 			</div>
-
-			{/* Mobile menu */}
-			{menuOpen && (
-				<div className="md:hidden border-t border-border bg-background-surface/95 backdrop-blur-md">
-					<div className="px-6 py-4 flex flex-col gap-4">
-						<Link
-							href="/support"
-							onClick={() => setMenuOpen(false)}
-							className="text-foreground-muted hover:text-foreground transition-colors py-2"
-						>
-							Support
-						</Link>
-						<a
-							href="#download"
-							onClick={() => setMenuOpen(false)}
-							className="text-foreground-muted hover:text-foreground transition-colors py-2"
-						>
-							Download
-						</a>
-						<a
-							href={LINKS.webApp}
-							onClick={() => setMenuOpen(false)}
-							className="px-5 py-2.5 bg-gold text-background font-semibold rounded-lg hover:bg-gold-light transition-colors text-center"
-						>
-							Play
-						</a>
-					</div>
-				</div>
-			)}
 		</nav>
 	);
 }

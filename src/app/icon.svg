@@ -1,3 +1,35 @@
-<svg width="312" height="312" viewBox="0 0 312 312" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M72.1426 258L103.771 245.349L120.641 190.525L72.1426 258ZM14.5674 257.648H61.6064L142.43 116.726L191.629 196.148L202.172 179.28L251.237 257.648H297L155.783 12L14.5674 257.648ZM144.537 184.903L152.269 196.148L160 173.657V196.148L174.76 225.669L181.086 209.503L213.417 241.834L152.269 148.354L144.537 184.903Z" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="89.5 110.5 804 804" role="img" aria-label="Adventura">
+  <!--
+    Primary favicon.
+
+    The viewBox is tighter than the exported artboard on purpose. The glyph
+    measures 647x707 inside a 1024 square, so it filled only 69% of it and a
+    16px tab rendered roughly 11px of actual letter. Cropping to the glyph plus
+    even padding takes that to ~88%, which is most of the legibility available
+    at that size.
+
+    The colour adapts rather than compromising. A single value has to survive
+    both a near-white and a near-black tab strip, and nothing does that well:
+    the brand green reaches only 2.3:1 on a light strip, while anything dark
+    enough for white disappears on Brave's dark chrome. Here the light strip
+    gets a deepened sage (4.7:1) and the dark strip gets the real brand green
+    (7.5:1), so neither is a compromise.
+
+    Browsers without SVG favicon support fall back to favicon.ico, which is the
+    light-strip colour since ICO cannot adapt.
+
+    The base colour is a presentation attribute rather than only a CSS rule.
+    Not every renderer applies an embedded stylesheet — librsvg does not, and
+    with the fill living solely in CSS the path fell back to black, which is
+    invisible on a dark tab strip. As an attribute it is the floor every
+    renderer gets, and the stylesheet still wins where stylesheets are honoured
+    (CSS outranks presentation attributes), so the adaptive behaviour survives
+    without depending on it.
+  -->
+  <style>
+    @media (prefers-color-scheme: dark) {
+      path { fill: #9BB1A1; }
+    }
+  </style>
+  <path fill="#5E7A68" d="M699.756 864.733C611.13 864.733 562.662 801.77 554.354 675.846H375.717C361.869 707.673 350.099 737.424 340.405 765.1L313.402 843.976H168L495.154 159H718.45L762.071 663.391C768.995 736.04 786.304 783.089 814 804.538C793.921 844.668 755.839 864.733 699.756 864.733ZM407.913 600.083H551.238L538.775 333.358V305.336L465.035 468.277L407.913 600.083Z"/>
 </svg>

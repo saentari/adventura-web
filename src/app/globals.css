@@ -1,59 +1,184 @@
 @import "tailwindcss";
 
+/*
+	Design tokens mirrored from the Flutter app's design system, so the
+	marketing site and the app read as one product.
+
+	Source of truth: adventura/lib/core/design_system/
+	  themes/app_theme.dart      — surfaces, text, borders, per-brightness
+	  tokens/colors.dart         — button palette, shadows
+	  tokens/radii.dart          — AppRadius
+	  tokens/text_styles.dart    — AppTextStyle scale
+	  tokens/breakpoints.dart    — content width, nav height
+
+	Keep these in sync when the app's theme changes.
+*/
+
 :root {
-	--background: #0c0a14;
-	--background-alt: #13101f;
-	--background-surface: #1a1528;
-	--foreground: #e8e2d6;
-	--foreground-muted: #a89f8f;
-	--accent-gold: #d4a853;
-	--accent-gold-light: #e8c875;
-	--accent-gold-dark: #b08930;
-	--accent-purple: #8b5cf6;
-	--accent-purple-light: #a78bfa;
-	--accent-crimson: #dc2626;
-	--border: #2a2438;
-	--border-light: #3d3450;
+	color-scheme: light;
+
+	/* Surfaces — AppTheme.lightTheme */
+	--background: #f5f5f5; /* scaffoldBackgroundColor */
+	--surface: #f0f0f0; /* colorScheme.surface */
+	--card: #ffffff; /* cardBackgroundColor / nav bar */
+
+	/* Text */
+	--ink: #1a1a1a; /* onSurface */
+	--ink-muted: #5a5a5a; /* onSurfaceVariant */
+
+	/* Lines */
+	--line: #e0e0e0; /* outline */
+	--line-soft: #e5e7eb; /* outlineVariant */
+
+	/* Adventura green. `--accent` is the app's primary, used for decoration
+	   only; `--link` is a darkened variant that clears WCAG AA at body size
+	   (5.4:1 on white, 4.9:1 on the page background). The app never sets
+	   16px text in the primary green, so it never needed this. */
+	--accent: #9bb1a1;
+	--link: #3f7a57;
+	--link-hover: #2f5c41;
+
+	/* Form validation. The app's AppColors.error (#EF4444) is only ever set on
+	   icons and filled chips there; at body size on white it is 3.3:1, so the
+	   site uses a darker cut. */
+	--danger: #b3261e;
+
+	--shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08);
+	--shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
 	:root {
-		--background: #f5f0e8;
-		--background-alt: #ebe4d6;
-		--background-surface: #faf7f0;
-		--foreground: #1a1528;
-		--foreground-muted: #5c5347;
-		--accent-gold: #b08930;
-		--accent-gold-light: #c49b3d;
-		--accent-gold-dark: #8a6b1e;
-		--accent-purple: #7c3aed;
-		--accent-purple-light: #6d28d9;
-		--accent-crimson: #b91c1c;
-		--border: #d4cbb8;
-		--border-light: #c4b99e;
+		color-scheme: dark;
+
+		/* AppTheme.darkTheme */
+		--background: #121212;
+		--surface: #2e2e2e;
+		--card: #1e1e1e;
+
+		--ink: #ededed;
+		--ink-muted: #a1a1a1;
+
+		--line: #2e2e2e;
+		--line-soft: #3e3e3e;
+
+		/* On #1E1E1E the app's green is already 7.3:1 — no darkening needed. */
+		--link: #9bb1a1;
+		--link-hover: #b6c7ba;
+
+		--danger: #f87171;
+
+		--shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3);
+		--shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.4);
 	}
 }
 
 @theme inline {
 	--color-background: var(--background);
-	--color-background-alt: var(--background-alt);
-	--color-background-surface: var(--background-surface);
-	--color-foreground: var(--foreground);
-	--color-foreground-muted: var(--foreground-muted);
-	--color-gold: var(--accent-gold);
-	--color-gold-light: var(--accent-gold-light);
-	--color-gold-dark: var(--accent-gold-dark);
-	--color-purple: var(--accent-purple);
-	--color-purple-light: var(--accent-purple-light);
-	--color-crimson: var(--accent-crimson);
-	--color-border: var(--border);
-	--color-border-light: var(--border-light);
-	--font-heading: var(--font-heading);
-	--font-body: var(--font-body);
+	--color-surface: var(--surface);
+	--color-card: var(--card);
+	--color-ink: var(--ink);
+	--color-ink-muted: var(--ink-muted);
+	--color-line: var(--line);
+	--color-line-soft: var(--line-soft);
+	--color-accent: var(--accent);
+	--color-link: var(--link);
+	--color-link-hover: var(--link-hover);
+	--color-danger: var(--danger);
+
+	/*
+		The unified action button — AppColors.buttonPrimary*. Deliberately
+		identical in light and dark mode, exactly as in the app: near-black
+		fill, dark-grey outline, light text.
+	*/
+	--color-button: #141414;
+	--color-button-ink: #ededed;
+	--color-button-line: #3b3b3b;
+
+	/* Overlays on imagery are always dark, whatever the theme. */
+	--color-overlay-ink: #ffffff;
+
+	--font-sans: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+	--font-brand: var(--font-sansita), Georgia, "Times New Roman", serif;
+
+	/* AppRadius */
+	--radius-xs: 4px;
+	--radius-sm: 8px;
+	--radius-md: 12px;
+	--radius-lg: 16px;
+	--radius-xl: 24px;
+
+	/* AppTextStyle. The app's sizes are fixed px for a fixed-density surface;
+	   they carry over unchanged except where a marketing page needs to scale
+	   across a phone-to-desktop range (see .text-display below). */
+	--text-caption: 0.75rem;
+	--text-caption--line-height: 1.4;
+	--text-body-sm: 0.875rem;
+	--text-body-sm--line-height: 1.4;
+	--text-body: 1rem;
+	--text-body--line-height: 1.5;
+	--text-body-lg: 1.125rem;
+	--text-body-lg--line-height: 1.5;
+	--text-header-sm: 1.25rem;
+	--text-header-sm--line-height: 1.3;
+	--text-header: 1.5rem;
+	--text-header--line-height: 1.3;
+	--text-header-lg: 2rem;
+	--text-header-lg--line-height: 1.2;
+	--text-title-sm: 2.25rem;
+	--text-title-sm--line-height: 1.2;
+	--text-title: 2.5rem;
+	--text-title--line-height: 1.2;
+	--text-title-lg: 3rem;
+	--text-title-lg--line-height: 1.1;
+
+	/* LayoutSizes.maxContentWidth */
+	--container-content: 1200px;
+
+	/* BreakpointWidths — the app's own size classes, not Tailwind's defaults.
+	   `medium` is where the persistent nav and the two-column grid appear. */
+	--breakpoint-medium: 840px;
+	--breakpoint-expanded: 1200px;
+
+	--shadow-card: var(--shadow-card);
+	--shadow-card-hover: var(--shadow-card-hover);
 }
 
 body {
 	background: var(--background);
-	color: var(--foreground);
-	font-family: var(--font-body), Arial, Helvetica, sans-serif;
+	color: var(--ink);
+	font-family: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+	-webkit-font-smoothing: antialiased;
+}
+
+/*
+	Brand type. SansitaSwashed carries the brand voice — wordmark and card
+	titles — and nothing else. Body copy and navigation stay in Satoshi, which
+	scans faster; see the note in the app's nav bar for the same reasoning.
+*/
+.font-brand {
+	font-family: var(--font-sansita), Georgia, "Times New Roman", serif;
+	letter-spacing: 0.0625em;
+}
+
+/*
+	Hero headline. The only place the app's fixed scale is replaced by a fluid
+	one: it has to hold a line on a 360px phone and still fill a 1200px column.
+	Ranges between AppTextStyle.brandTitleMedium (30px) and brandTitle (48px).
+*/
+.text-display {
+	font-size: clamp(1.75rem, 1.1rem + 2.9vw, 3rem);
+	line-height: 1.15;
+}
+
+/* Respect the reduced-motion preference for every transition on the site. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 }
