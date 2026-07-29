@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { AUTH_PRESENCE_SCRIPT } from "@/lib/auth-presence";
 
 /**
  * Brand face, matching the app's `SansitaSwashed` family.
@@ -93,6 +94,14 @@ export default function RootLayout({
 			<body
 				className={`${sansita.variable} ${satoshi.variable} bg-background text-ink antialiased`}
 			>
+				{/*
+					First thing in the body so it runs before the nav is parsed, which
+					is what keeps the signed-in button from flashing. The pages are
+					statically prerendered and CDN-cached identically for everyone —
+					this is the only personalisation, and it happens in the browser, so
+					the cache stays intact.
+				*/}
+				<script dangerouslySetInnerHTML={{ __html: AUTH_PRESENCE_SCRIPT }} />
 				<Navbar />
 				<main>{children}</main>
 				<Footer />

@@ -1,29 +1,19 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Button from "./Button";
 import { LINKS } from "@/lib/links";
 
 /**
  * Persistent top navigation, ported from the app's `AppShell` bar.
  *
- * Same anatomy: 72px tall, card-coloured with a hairline bottom border, the
- * wordmark anchoring the left in the brand face, destinations in plain Satoshi
- * beside it, and a single filled button at the right end. The active
- * destination is marked by a 2px rule hanging off the bar's bottom edge rather
- * than sitting under its label — it reads as marking the bar's boundary, and
- * keeps the labels on the same baseline as the wordmark.
+ * 72px tall, card-coloured with a hairline bottom border, the wordmark
+ * anchoring the left, and a single filled button at the right end.
+ *
+ * No destinations: the home grid already leads to every page the site has,
+ * and the footer carries them on every other page. A bar with two lonely
+ * links beside a wordmark reads as an unfinished menu rather than a
+ * navigation system.
  */
-
-const DESTINATIONS = [
-	{ label: "Download", href: "/download" },
-	{ label: "Support", href: "/support" },
-];
-
 export default function Navbar() {
-	const pathname = usePathname();
-
 	return (
 		<nav className="sticky top-0 z-50 border-b border-line bg-card">
 			<div className="mx-auto flex h-[72px] max-w-content items-center px-4 medium:px-6 expanded:px-8">
@@ -35,39 +25,21 @@ export default function Navbar() {
 				</Link>
 
 				{/*
-					Hidden below the app's `medium` breakpoint, matching the mockup and
-					the app — which is a pass-through at those widths. Both destinations
-					are reachable from the home grid and the footer on a phone.
+					Both states ship in the markup; CSS shows one. See
+					`lib/auth-presence.ts` for why the choice is made from a cookie
+					before paint rather than after hydration.
 				*/}
-				<div className="ml-10 hidden h-full items-stretch medium:flex">
-					{DESTINATIONS.map((destination) => {
-						const active =
-							pathname === destination.href ||
-							pathname.startsWith(`${destination.href}/`);
-
-						return (
-							<Link
-								key={destination.href}
-								href={destination.href}
-								aria-current={active ? "page" : undefined}
-								className="group relative flex items-center px-4 text-body text-ink-muted transition-colors hover:text-ink"
-							>
-								{destination.label}
-								<span
-									aria-hidden
-									className={`absolute inset-x-0 bottom-0 h-0.5 transition-colors ${
-										active ? "bg-ink" : "bg-transparent"
-									}`}
-								/>
-							</Link>
-						);
-					})}
-				</div>
-
 				<div className="ml-auto">
-					<Button href={LINKS.webApp} size="sm">
-						Sign in
-					</Button>
+					<span data-auth-visible="out">
+						<Button href={LINKS.webApp} size="sm">
+							Sign in
+						</Button>
+					</span>
+					<span data-auth-visible="in">
+						<Button href={LINKS.webApp} size="sm">
+							Open app
+						</Button>
+					</span>
 				</div>
 			</div>
 		</nav>

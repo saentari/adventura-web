@@ -171,6 +171,34 @@ body {
 	line-height: 1.15;
 }
 
+/*
+	Signed-in / signed-out swap.
+
+	Both variants are in the markup and CSS picks one, so the choice is made
+	before paint by the inline script in `layout.tsx` — no hydration flash and
+	no layout shift. Signed-out is the default, so a visitor with JavaScript
+	disabled, or one whose cookie has not been set, still gets a working "Sign
+	in" button rather than nothing at all.
+
+	`display: contents` keeps the wrapper out of the layout: the button inside
+	stays a direct flex item of the nav.
+*/
+[data-auth-visible="out"] {
+	display: contents;
+}
+
+[data-auth-visible="in"] {
+	display: none;
+}
+
+:root[data-auth="in"] [data-auth-visible="out"] {
+	display: none;
+}
+
+:root[data-auth="in"] [data-auth-visible="in"] {
+	display: contents;
+}
+
 /* Respect the reduced-motion preference for every transition on the site. */
 @media (prefers-reduced-motion: reduce) {
 	*,
