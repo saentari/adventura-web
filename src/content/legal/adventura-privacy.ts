@@ -1,18 +1,20 @@
-// Shared source of truth for the Adventura privacy policy. Rendered by both the
+// Shared source of truth for the Adventura privacy policy, mirroring
+// adventura/assets/texts/privacy_policy.md so the in-app and web copies never
+// drift. Edit that file and re-sync rather than editing this one by hand.
 // Served at /privacy.
 const adventuraPrivacy = `# Privacy Policy
 
-**Last Updated:** March 22, 2026\\
+**Last Updated:** July 29, 2026\\
 **Effective Date:** March 5, 2026
 
-Saentari ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our mobile application Adventura (the "App"). Please read this Privacy Policy carefully. By using our App, you consent to the data practices described in this policy.
+Saentari ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our application Adventura (the "App") and our website at adventura.gg (the "Site"). Please read this Privacy Policy carefully. By using our App, you consent to the data practices described in this policy.
 
 ## 1. Information We Collect
 
 ### 1.1 Character and Game Data
 - **Character Information:** We store your tabletop RPG character data locally on your device, including names, stats, equipment, and game progress.
-- **Character Portraits:** If you select a portrait image for your character from your device's photo library, that image is stored locally on your device. If you create an account and sign in, portrait images are also uploaded to our cloud service to enable access across devices.
-- **Campaign and Party Data:** If you create campaigns or join parties, we store campaign details (name, description, house rules) and party membership data (character snapshots shared with party members) locally and, if signed in, in our cloud service.
+- **Character Portraits:** If you select a portrait image for your character from your device's photo library, that image is stored locally on your device. If you create an account and sign in, portrait images are also uploaded to our cloud service to enable access across devices. On iOS, the App requests permission to access your photo library when you choose to add a character portrait. The App does not access your photo library for any other purpose.
+- **Adventure Data:** Some adventures are AI-free and authored — these play fully offline, and your progress is stored only on your device. For AI-enhanced solo adventures (which require an account), we store your conversation history with the AI Game Master, including your text input, the AI's narrative responses, and mechanical outcomes, in our cloud service associated with your account.
 - **Custom Content:** You may import custom content packs into the App by providing a URL. The App fetches the content from the URL you provide. This content is stored locally on your device.
 
 ### 1.2 Device Information
@@ -21,8 +23,7 @@ Saentari ("we," "our," or "us") is committed to protecting your privacy. This Pr
 
 ### 1.3 Usage Data
 - **App Usage Statistics:** We collect anonymous information about how you interact with the App, including screens visited and app performance metrics, through Firebase Analytics.
-- **Crash Reports:** In the event of an app crash or error, we collect diagnostic information including error messages and stack traces through Firebase Crashlytics. Personal information is filtered from crash reports before submission.
-- **Feature Configuration:** We use Firebase Remote Config to manage feature availability within the App. This service contacts Google servers to retrieve configuration data.
+- **Crash Reports:** In the event of an app crash or error, we collect diagnostic information including error messages and stack traces through Sentry. Personal information is filtered from crash reports before submission.
 
 ### 1.4 Account Information (Optional)
 Creating an account is entirely optional. The App works fully without one. If you choose to create an account, we collect the following:
@@ -34,9 +35,9 @@ Creating an account is entirely optional. The App works fully without one. If yo
 
 We use the information we collect for the following purposes:
 
-- **Core App Functionality:** To store your character data and provide game features. If you create an account, to sync your data across devices.
+- **Core App Functionality:** To store your character data and provide game features. If you create an account, to sync your data across devices. To generate AI narration for solo adventures.
 - **App Improvement:** To identify and fix bugs, improve app performance, and enhance user experience through analytics and crash reporting.
-- **Feature Management:** To manage feature availability and deliver app updates through remote configuration.
+- **Feature Management:** To manage feature availability based on your subscription tier.
 - **Technical Support:** To diagnose technical issues and provide customer support when needed.
 
 ## 3. Data Storage and Retention
@@ -48,6 +49,7 @@ We use the information we collect for the following purposes:
 ### 3.2 Cloud Storage (Optional)
 - **Cloud Sync:** If you create an account and sign in, your character data is synced to our cloud service (Supabase) to enable backup and access across devices. Sync occurs periodically (approximately every 15 minutes) when you are signed in and connected to the internet, and automatically when your device reconnects to the internet.
 - **Portrait Storage:** If you are signed in, character portrait images are also stored in our cloud service.
+- **Adventure Conversations:** If you play AI-enhanced solo adventures, your conversation history with the AI Game Master (your text input and AI responses) is stored in our cloud service. You can delete this data by deleting the adventure session. AI-free authored adventures store their progress only on your device.
 - **You control cloud sync:** Cloud storage is only active when you are signed in. If you sign out, no further data is transmitted to our cloud service.
 
 ### 3.3 Data Retention
@@ -55,10 +57,20 @@ We use the information we collect for the following purposes:
 - **Cloud Data:** If you have an account, your synced character data and portraits are retained in our cloud service until you delete them through the App or delete your account.
 - **Analytics and Crash Data:** Anonymous usage data and crash reports sent to Google Firebase are retained according to Google's data retention policies.
 
+### 3.4 Cookies and Browser Storage (Web)
+
+This section applies to the browser version of the App (app.adventura.gg) and to the Site (adventura.gg). The iOS and Android apps do not use cookies.
+
+- **No tracking or advertising cookies.** We do not use cookies for advertising, profiling, or cross-site tracking, and we do not share cookie data with third parties. The Site carries no third-party analytics or advertising scripts.
+- **Sign-in session:** The browser version of the App stores your sign-in session in your browser's local storage. This is required for it to function — unlike the mobile apps, a browser has no offline store to fall back on. Signing out clears it.
+- **Sign-in status cookie (adv_signed_in):** While you are signed in to the browser version of the App, we set a single cookie on the adventura.gg domain so that the Site can show "Open app" instead of "Sign in". It contains only the value 1 — no name, email address, account identifier, or authentication token. It expires after 30 days, is refreshed while you remain signed in, and is deleted when you sign out.
+- **Managing cookies:** These are strictly functional, so there is no advertising consent to withdraw. You can clear or block cookies and site data in your browser settings; the only consequence is that you will be signed out and the Site will show "Sign in".
+
 ## 4. Third-Party Services
 
-### 4.1 Analytics, Crash Reporting, and Configuration
-- **Google Firebase:** We use Firebase Analytics to collect anonymous usage statistics (such as screens visited, session data, and device type), Firebase Crashlytics to collect crash reports in production builds, and Firebase Remote Config to manage feature availability. These services are provided by Google. An anonymous identifier is generated for all users. Personal information is filtered from crash reports before submission. Google's privacy policy can be found at: https://policies.google.com/privacy
+### 4.1 Analytics and Crash Reporting
+- **Google Firebase:** We use Firebase Analytics to collect anonymous usage statistics (such as screens visited, session data, and device type) in production builds. This service is provided by Google and is used on mobile only. An anonymous identifier is generated for all users. Google's privacy policy can be found at: https://policies.google.com/privacy
+- **Sentry:** We use Sentry to collect crash reports and error diagnostics in production builds, including error messages, stack traces, and the anonymous identifier described above. Personal information is filtered from crash reports before submission. Sentry is provided by Functional Software, Inc. Sentry's privacy policy can be found at: https://sentry.io/privacy/
 
 ### 4.2 Cloud Services (for Account Holders)
 - **Supabase:** If you create an account, we use Supabase for authentication, cloud data storage, and file storage. Supabase processes your email address (or OAuth profile information), character data, portrait images, and subscription status. Supabase's privacy policy can be found at: https://supabase.com/privacy
@@ -66,11 +78,14 @@ We use the information we collect for the following purposes:
 ### 4.3 Subscription Management
 - **RevenueCat:** If you subscribe to a paid tier, we use RevenueCat to manage your subscription and entitlements. RevenueCat processes your anonymous app user ID, subscription status, and purchase receipts. RevenueCat's privacy policy can be found at: https://www.revenuecat.com/privacy
 
+### 4.4 AI Narration
+- **Anthropic:** If you play solo adventures, the App sends your character's game data and your text input to an AI service (Anthropic Claude) via our server to generate narrative responses. No conversation data is used to train AI models. Anthropic's privacy policy can be found at: https://www.anthropic.com/privacy
+
 ## 5. Data Sharing and Disclosure
 
 We do not sell, trade, or rent your personal information to third parties. We only share your information in the following circumstances:
 
-- **Service Providers:** We share anonymous usage data and crash reports with Google Firebase as described in Section 4.1. If you create an account, we share your data with Supabase as described in Section 4.2. If you subscribe, we share subscription data with RevenueCat as described in Section 4.3.
+- **Service Providers:** We share anonymous usage data and crash reports with Google Firebase as described in Section 4.1. If you create an account, we share your data with Supabase as described in Section 4.2. If you subscribe, we share subscription data with RevenueCat as described in Section 4.3. If you play solo adventures, we share character game data and your text input with Anthropic as described in Section 4.4.
 - **Legal Requirements:** We may disclose your information if required by law, court order, or governmental authority.
 - **Business Transfers:** In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.
 
@@ -78,12 +93,12 @@ We do not sell, trade, or rent your personal information to third parties. We on
 
 ### 6.1 Access and Control
 - **Access Your Data:** You can view your data through the App's interface, including your characters and game progress.
-- **Export Your Data:** You can export your character data as PDF files.
-- **Delete Your Data:** You can delete your characters, campaigns, and party data through the App. If you have an account, deletion removes your data from both your device and our cloud service, including any synced character portraits. You can also contact us to request complete data deletion.
-- **Delete Your Account:** If you have an account, you can delete it through the App's settings. This removes all your data from our cloud service.
+- **Export Your Data:** You can export your character data as PDF or JSON files.
+- **Delete Your Data:** You can delete your characters and adventure data through the App. If you have an account, deletion removes your data from both your device and our cloud service, including any synced character portraits. You can also contact us to request complete data deletion.
+- **Delete Your Account:** If you have an account, you can delete it directly from within the App via Settings → Account → Delete Account. Account deletion immediately removes your characters, portraits, adventure sessions, and account record from our cloud service. You can also contact us at contact@saentari.com to request deletion; in that case, we will delete all your data from our cloud service within 30 days.
 
 ### 6.2 Data Portability
-You have the right to receive your data in a portable format. You can export your character data as PDF files through the App.
+You have the right to receive your data in a portable format. You can export your character data as PDF or JSON files through the App.
 
 ### 6.3 Right to Complain
 If you are located in the European Economic Area, you have the right to lodge a complaint with your local data protection supervisory authority. In the Netherlands, this is the Autoriteit Persoonsgegevens (https://autoriteitpersoonsgegevens.nl).
@@ -121,6 +136,6 @@ If you have any questions, concerns, or requests regarding this Privacy Policy o
 
 We will respond to your inquiries within a reasonable timeframe.
 
-*By using the Adventura mobile application, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of your information as described herein.*`;
+*By using the Adventura application, you acknowledge that you have read and understood this Privacy Policy and agree to the collection and use of your information as described herein.*`;
 
 export default adventuraPrivacy;
