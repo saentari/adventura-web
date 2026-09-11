@@ -34,11 +34,13 @@
 	"scripts": {
 		"build": "next build",
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
-		"check": "npm run lint && npm run build && tsc",
+		"check": "npm run check:legal && npm run lint && npm run build && tsc",
+		"check:legal": "node scripts/sync-legal.mjs --check",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"dev": "next dev",
 		"lint": "eslint .",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-		"start": "next start"
+		"start": "next start",
+		"sync:legal": "node scripts/sync-legal.mjs"
 	}
 }
