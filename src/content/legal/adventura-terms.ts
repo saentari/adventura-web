@@ -1,6 +1,5 @@
-// Shared source of truth for the Adventura terms & conditions, mirroring
-// adventura/assets/texts/terms_and_conditions.md so the in-app and web copies never
-// drift. Edit that file and re-sync rather than editing this one by hand.
+// Generated from adventura/assets/texts/terms_and_conditions.md — do not edit.
+// Edit the app's copy, then run `npm run sync:legal`.
 // Served at /terms.
 const adventuraTerms = `# Terms & Conditions
 
