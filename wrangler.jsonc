@@ -1,19 +1,13 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "adventura-web",
-	"main": ".open-next/worker.js",
 	"compatibility_date": "2025-10-08",
-	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	// Static assets only: no Worker script, so serving a page costs no CPU
 	"assets": {
-		"binding": "ASSETS",
-		"directory": ".open-next/assets"
+		"directory": "./out",
+		"not_found_handling": "404-page"
 	},
 	"observability": {
 		"enabled": true
-	},
-	"upload_source_maps": true
+	}
 }

@@ -2,7 +2,7 @@
 
 Marketing site for Adventura — [adventura.gg](https://adventura.gg).
 
-Next.js 16 (App Router) on Cloudflare Workers via OpenNext. The app itself is a
+Next.js 16 (App Router), exported as static files and served by Cloudflare Workers static assets. The app itself is a
 separate Flutter project (`../adventura`) served at `app.adventura.gg`.
 
 ## What lives here

@@ -1,7 +1,12 @@
 # adventura-web
 
 Marketing site for Adventura — `adventura.gg`. Next.js 16 (App Router, Turbopack)
-+ Tailwind v4 + React 19, deployed to Cloudflare Workers via OpenNext.
++ Tailwind v4 + React 19, exported as static files (`output: "export"`) that
+Cloudflare Workers serves as static assets, with no Worker script. It ran on
+OpenNext until 2026-10-22: rendering every request in the Worker cost about a
+second of CPU on the legal pages, against the free plan's 10 ms, so some
+requests ended in a 503. Redirects live in `public/_redirects` and headers in
+`public/_headers`, since an export can't run Next's own.
 
 The product itself is the Flutter app in `../adventura`, served at
 `app.adventura.gg`. This repo is the shop window in front of it.
@@ -53,10 +58,8 @@ file is the only place raw hex values belong.
 
 ## Images
 
-`next/image` optimisation is **off** (`next.config.ts`), and that is intentional:
-OpenNext's `/_next/image` handler only optimises when the Worker has an `IMAGES`
-binding, and `wrangler.jsonc` has none — so it would fetch the original, hand it
-straight back, and bill a Worker invocation for it.
+`next/image` optimisation is **off** (`next.config.ts`): a static export has no
+optimiser.
 
 Instead every image is pre-sized to two widths at authoring time, and `Card`
 builds the `srcset` from the basename. See the README for the `magick` commands.
@@ -133,6 +136,5 @@ warning.
 | Dev server | `npm run dev` |
 | Build + typecheck (includes the legal sync check) | `npm run check` |
 | Re-sync /privacy and /terms from saentari-web | `npm run sync:legal` |
-| Preview the Worker build locally | `npm run preview` |
+| Serve the exported site locally | `npm run preview` |
 | Deploy | `npm run deploy` |
-| Regenerate Cloudflare env types | `npm run cf-typegen` |
