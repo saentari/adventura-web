@@ -1,9 +1,9 @@
-// Generated from adventura/assets/texts/terms_and_conditions.md — do not edit.
-// Edit the app's copy, then run `npm run sync:legal`.
+// Generated from saentari-web/src/content/legal/adventura-terms.ts — do not edit.
+// Edit it there, then run `npm run sync:legal`.
 // Served at /terms.
 const adventuraTerms = `# Terms & Conditions
 
-**Last Updated:** September 9, 2026\\
+**Last Updated:** October 22, 2026\\
 **Effective Date:** March 5, 2026
 
 ## 1. Introduction
@@ -108,7 +108,7 @@ Upon termination, your right to use the App will immediately cease. Data stored 
 
 ## 12. Changes to Terms
 
-We reserve the right to modify these Terms at any time. When we do, we update the "Last Updated" date at the top of these Terms. The current version is always available in the App under Settings → Terms & conditions, and at https://adventura.gg/terms. Your continued use of the App after changes constitutes acceptance of the modified Terms.
+We reserve the right to modify these Terms at any time. When we do, we update the "Last Updated" date at the top of these Terms. The current version is always at https://adventura.gg/terms, linked from the App's Settings. Your continued use of the App after changes constitutes acceptance of the modified Terms.
 
 ## 13. Governing Law
 

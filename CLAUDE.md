@@ -84,13 +84,15 @@ for a `hiddenOnWeb` flag.
 ## Legal pages
 
 **`/privacy` and `/terms` are generated. Never hand-edit
-`src/content/legal/*.ts`.** The app at `../adventura` ships both documents as
-markdown under `assets/texts/` and renders them in Settings; this site renders
-the same text. One document, two readers — and the app is the source of truth,
-because that is where the practices being described actually live.
+`src/content/legal/*.ts`.** Both documents are written once, in
+`../saentari-web` (`src/content/legal/adventura-*.ts`), which also serves them
+at saentari.com/adventura; this site renders the same text at the addresses the
+app and the store listings link to. The app keeps no copy: it links here.
+What the app actually sends where is recorded in `../adventura/docs/compliance.md`,
+and the `check-compliance` skill checks the policy against it.
 
 ```bash
-npm run sync:legal    # rewrite the TS files from the app's markdown
+npm run sync:legal    # rewrite the TS files from saentari-web's sources
 npm run check:legal   # fail if they disagree (runs inside `npm run check`)
 ```
 
@@ -104,7 +106,7 @@ existed. **That stale terms had also lost the two SRD attribution blocks**,
 which are a CC-BY 4.0 obligation and not editorial, to a one-line paraphrase.
 None of it was caught because nothing was looking.
 
-`check:legal` **passes when `../adventura` is missing**, so this repo still
+`check:legal` **passes when `../saentari-web` is missing**, so this repo still
 builds alone — it prints a loud skip rather than failing. A guard that quietly
 stops guarding is the failure it exists to prevent, so do not silence that
 warning.
@@ -133,6 +135,6 @@ warning.
 | :--- | :--- |
 | Dev server | `npm run dev` |
 | Build + typecheck (includes the legal sync check) | `npm run check` |
-| Re-sync /privacy and /terms from the app | `npm run sync:legal` |
+| Re-sync /privacy and /terms from saentari-web | `npm run sync:legal` |
 | Serve the exported site locally | `npm run preview` |
-| Deploy (Workers Builds also deploys every push to main) | `npm run deploy` |
+| Deploy | `npm run deploy` |
