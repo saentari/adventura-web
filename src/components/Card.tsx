@@ -4,12 +4,9 @@ import Link from "next/link";
 /*
 	`next/image` is deliberately not used for card art.
 
-	The Worker has no `IMAGES` binding (see wrangler.jsonc), so OpenNext's
-	`/_next/image` handler falls through and returns the original bytes — the
-	optimisation never happens, and every request pays a Worker invocation for
-	the privilege. A plain `<img>` with a hand-built srcset skips the round trip
-	entirely and serves the pre-sized WebP variants straight from the asset CDN,
-	which is what the build already produces.
+	The site is a static export, which has no image optimiser. A plain `<img>`
+	with a hand-built srcset serves the pre-sized WebP variants straight from
+	the asset CDN, which is what the build already produces.
 */
 
 type CardImage = {

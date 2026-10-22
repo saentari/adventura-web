@@ -12,7 +12,6 @@
 		"publish": true
 	},
 	"dependencies": {
-		"@opennextjs/cloudflare": "1.14.0",
 		"@supabase/supabase-js": "^2.98.0",
 		"next": "16.0.7",
 		"react": "19.2.1",
@@ -33,13 +32,12 @@
 	"private": true,
 	"scripts": {
 		"build": "next build",
-		"cf-typegen": "wrangler types --env-interface CloudflareEnv env.d.ts",
 		"check": "npm run check:legal && npm run lint && npm run build && tsc",
 		"check:legal": "node scripts/sync-legal.mjs --check",
-		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+		"deploy": "next build && wrangler deploy",
 		"dev": "next dev",
 		"lint": "eslint .",
-		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+		"preview": "next build && wrangler dev",
 		"start": "next start",
 		"sync:legal": "node scripts/sync-legal.mjs"
 	}

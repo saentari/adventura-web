@@ -1,0 +1,4 @@
+# https://developers.cloudflare.com/workers/static-assets/redirects
+# Paths that were app-scoped on saentari.com are now the site root here
+/adventura    /         308
+/adventura/*  /:splat  308

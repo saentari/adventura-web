@@ -1,5 +1,8 @@
 import type { MetadataRoute } from "next";
 
+// Written out as a file by the static export
+export const dynamic = "force-static";
+
 /**
  * Web manifest, mirroring the app's `web/manifest.json` — same name, same
  * background and theme colours, same icon set.
