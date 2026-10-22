@@ -1,5 +1,5 @@
-// Generated from adventura/assets/texts/privacy_policy.md — do not edit.
-// Edit the app's copy, then run `npm run sync:legal`.
+// Generated from saentari-web/src/content/legal/adventura-privacy.ts — do not edit.
+// Edit it there, then run `npm run sync:legal`.
 // Served at /privacy.
 const adventuraPrivacy = `# Privacy Policy
 
