@@ -199,6 +199,4 @@ dist
 .dev.vars*
 !.dev.vars.example
 
-### OpenNext ###
-.open-next/
 next-env.d.ts
