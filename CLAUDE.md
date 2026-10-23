@@ -137,4 +137,4 @@ warning.
 | Build + typecheck (includes the legal sync check) | `npm run check` |
 | Re-sync /privacy and /terms from saentari-web | `npm run sync:legal` |
 | Serve the exported site locally | `npm run preview` |
-| Deploy | `npm run deploy` |
+| Deploy | Push to `main`: Workers Builds builds and deploys it (`npm run deploy` still works by hand) |
