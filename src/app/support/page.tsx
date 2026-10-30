@@ -29,10 +29,7 @@ On mobile, Adventura works offline and most of your data stays on your device. I
 For exactly what is collected and how it is used, see the [Privacy Policy](/privacy).
 
 ### Do I need an account?
-Not on mobile — you can create and manage characters entirely offline. An account is only needed for cloud sync, purchases, and the browser version.
-
-### How do purchases and refunds work?
-Purchases made in the mobile apps are processed by the Apple App Store or Google Play, and refunds are handled by the store you purchased from, under their policies.
+Not on mobile — you can create and manage characters entirely offline. An account is only needed for cloud sync and the browser version.
 
 ### How do I delete my data?
 Uninstalling the app removes its local data from your device. To delete your account and everything stored in the cloud, use the delete option in the app's account settings, or email us to request it.

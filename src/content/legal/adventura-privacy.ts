@@ -3,7 +3,7 @@
 // Served at /privacy.
 const adventuraPrivacy = `# Privacy Policy
 
-**Last Updated:** October 22, 2026\\
+**Last Updated:** October 30, 2026\\
 **Effective Date:** March 5, 2026
 
 Saentari ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our application Adventura (the "App") and our website at adventura.gg (the "Site"). Saentari is responsible for the personal data described here (its "controller" under the EU's General Data Protection Regulation); you can reach us at contact@saentari.com. Supabase, Google Firebase, Sentry and RevenueCat process it only on our behalf.
@@ -13,7 +13,7 @@ Saentari ("we," "our," or "us") is committed to protecting your privacy. This Pr
 ### 1.1 Character and Game Data
 - **Character Information:** We store your tabletop RPG character data locally on your device, including names, stats, equipment, and game progress.
 - **Character Portraits:** If you select a portrait image for your character from your device's photo library, that image is stored locally on your device. If you create an account and sign in, portrait images are also uploaded to our cloud service to enable access across devices. On iOS, the App requests permission to access your photo library when you choose to add a character portrait. The App does not access your photo library for any other purpose.
-- **Adventure Data:** Some adventures are AI-free and authored. On iOS and Android these play fully offline, and your progress is stored only on your device. In the browser version, which has no offline storage, your progress is saved to our cloud service under your account instead.
+- **Adventure Data:** Solo adventures are available only in versions up to 2.2.x. If you play one, your progress stays until you delete it: on iOS and Android it is stored only on your device, and in the browser version, which has no offline storage, it is saved to our cloud service under your account instead.
 - **Custom Content:** You may import custom content packs into the App by providing a URL or by selecting a file. The App fetches the content from the URL you provide. This content is stored locally on your device and, if you are signed in, synced to our cloud service so that it is available on your other devices. The complete pack — including its name, description, source URL, and full contents — is stored under your account. You are responsible for ensuring that you have the right to import and store any content you add.
 - **Sheet Layouts and Preferences:** Your character sheet layout customisations and app preferences are stored on your device. In the browser version, sheet layouts are stored in our cloud service under your account.
 
@@ -29,7 +29,7 @@ Saentari ("we," "our," or "us") is committed to protecting your privacy. This Pr
 Creating an account is entirely optional. The App works fully without one. If you choose to create an account, we collect the following:
 - **Email and Password:** If you sign up with email and password, we collect your email address. Your password is securely handled by our authentication provider (Supabase) and is not stored by us directly.
 - **OAuth Profile Information:** If you sign in via Google or Apple, we receive basic profile information (such as your name and email address) from the OAuth provider.
-- **Subscription Data:** If you subscribe to a paid tier, we store your subscription status, tier, store of purchase, and subscription period. On iOS and Android, payment processing is handled by the respective app store (Apple App Store or Google Play Store). In the browser version, checkout is hosted by RevenueCat and payment is processed by its payment provider. In neither case do we collect or store your payment card details.
+- **Subscription Data:** Paid tiers are available only in versions up to 2.2.x. If you subscribe to one, we store your subscription status, tier, store of purchase, and subscription period. On iOS and Android, payment processing is handled by the respective app store (Apple App Store or Google Play Store). In the browser version, checkout is hosted by RevenueCat and payment is processed by its payment provider. In neither case do we collect or store your payment card details.
 
 ## 2. How We Use Your Information
 
@@ -37,7 +37,7 @@ We use the information we collect for the following purposes:
 
 - **Core App Functionality:** To store your character data and provide game features. If you create an account, to sync your data across devices.
 - **App Improvement:** To identify and fix bugs, improve app performance, and enhance user experience through analytics and crash reporting.
-- **Feature Management:** To manage feature availability based on your subscription tier.
+- **Feature Management:** In versions up to 2.2.x, to manage feature availability based on your subscription tier.
 - **Technical Support:** To diagnose technical issues and provide customer support when needed.
 
 Each use rests on a legal basis under the General Data Protection Regulation:
@@ -59,8 +59,8 @@ Nothing in the App makes automated decisions about you.
 - **Portrait Storage:** If you are signed in, character portrait images are also stored in our cloud service.
 - **Custom Content:** If you are signed in, custom content packs you import are stored in our cloud service so that they are available on your other devices.
 - **Sheet Layouts:** In the browser version, your character sheet layout customisations are stored in our cloud service under your account.
-- **Adventure Progress:** On iOS and Android, adventures store their progress only on your device; in the browser version, which has no offline storage, that progress is stored in our cloud service under your account.
-- **You control cloud sync:** Character data, portraits, and custom content are only stored in our cloud service while you are signed in, and no further data of that kind is transmitted after you sign out. The App still contacts our servers while you are signed out in order to list the available adventures and to download free adventure packs; these requests include your IP address but are not linked to an account.
+- **Adventure Progress:** On iOS and Android, adventures played in versions up to 2.2.x store their progress only on your device; in the browser version, which has no offline storage, that progress is stored in our cloud service under your account.
+- **You control cloud sync:** Character data, portraits, and custom content are only stored in our cloud service while you are signed in, and no further data of that kind is transmitted after you sign out. Versions up to 2.2.x still contact our servers while you are signed out in order to list the available adventures and to download free adventure packs; these requests include your IP address but are not linked to an account.
 
 ### 3.3 Data Retention
 - **Local Data:** Data stored locally on your device remains until you delete the App or manually delete your characters within the App.
@@ -85,10 +85,10 @@ This section applies to the browser version of the App (app.adventura.gg) and to
 - **Sentry:** We use Sentry to collect crash reports and error diagnostics in production builds, including error messages, stack traces, and the anonymous identifier described above. Personal information is filtered from crash reports before submission. In the browser version, crash reports are relayed to Sentry through our own server, because ad blockers commonly block direct connections to Sentry. Sentry is provided by Functional Software, Inc. Sentry's privacy policy can be found at: https://sentry.io/privacy/
 
 ### 4.2 Cloud Services
-- **Supabase:** We use Supabase for authentication, cloud data storage, and file storage. If you create an account, Supabase processes your email address (or OAuth profile information), character data, portrait images, custom content packs, and subscription status. Even when you are not signed in, the App contacts Supabase in order to list the available adventures and to download free adventure packs; these requests include your IP address but are not linked to an account. Supabase's privacy policy can be found at: https://supabase.com/privacy
+- **Supabase:** We use Supabase for authentication, cloud data storage, and file storage. If you create an account, Supabase processes your email address (or OAuth profile information), character data, portrait images, custom content packs, and subscription status. Even when you are not signed in, versions up to 2.2.x contact Supabase in order to list the available adventures and to download free adventure packs; these requests include your IP address but are not linked to an account. Supabase's privacy policy can be found at: https://supabase.com/privacy
 
 ### 4.3 Subscription Management
-- **RevenueCat:** If you subscribe to a paid tier, we use RevenueCat to manage your subscription and entitlements. RevenueCat processes your account identifier, subscription status, and purchase receipts. In the browser version, checkout is hosted by RevenueCat and your account identifier forms part of the checkout URL, so that the purchase is credited to your existing account. RevenueCat's privacy policy can be found at: https://www.revenuecat.com/privacy
+- **RevenueCat:** If you subscribe to a paid tier in a version up to 2.2.x, we use RevenueCat to manage your subscription and entitlements. Later versions send RevenueCat nothing. RevenueCat processes your account identifier, subscription status, and purchase receipts. In the browser version, checkout is hosted by RevenueCat and your account identifier forms part of the checkout URL, so that the purchase is credited to your existing account. RevenueCat's privacy policy can be found at: https://www.revenuecat.com/privacy
 
 ## 5. Data Sharing and Disclosure
 
@@ -135,7 +135,7 @@ Our service providers (Supabase, Google Firebase, Sentry, and RevenueCat) may pr
 
 ## 10. Changes to This Privacy Policy
 
-We may update this Privacy Policy from time to time. When we do, we update the "Last Updated" date at the top of this Privacy Policy. The current version is always at https://adventura.gg/privacy, linked from the App's Settings and from the subscription screen. We encourage you to review it periodically.
+We may update this Privacy Policy from time to time. When we do, we update the "Last Updated" date at the top of this Privacy Policy. The current version is always at https://adventura.gg/privacy, linked from the App's Settings and, in versions up to 2.2.x, from the subscription screen. We encourage you to review it periodically.
 
 ## 11. Contact Us
 

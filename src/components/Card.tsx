@@ -15,13 +15,7 @@ type CardImage = {
 	alt: string;
 };
 
-type CardCta =
-	| { label: string; href: string; external?: boolean }
-	| { label: string; disabled: true };
-
-function isDisabled(cta: CardCta): cta is { label: string; disabled: true } {
-	return "disabled" in cta;
-}
+type CardCta = { label: string; href: string; external?: boolean };
 
 /**
  * Base card, ported from the app's `ThemedCard` proportions: card-coloured
@@ -53,8 +47,8 @@ export default function Card({
 	/**
 	 * Absorb whatever height is left at the bottom of its column.
 	 *
-	 * Seven equal cards cannot tile two columns evenly — one column always
-	 * carries a fourth, leaving roughly a card's worth of dead space under the
+	 * Five equal cards cannot tile two columns evenly — one column always
+	 * carries a third, leaving roughly a card's worth of dead space under the
 	 * other. Rather than pad it out or drop a card, the last card in the short
 	 * column takes the slack: its crop grows instead of being fixed at 5:3, so
 	 * both columns land flush. Nothing else about it changes.
@@ -92,13 +86,7 @@ export default function Card({
 
 				{cta && (
 					<div className="mt-auto pt-4">
-						{isDisabled(cta) ? (
-							<span className="inline-flex items-center gap-2 text-body-sm text-ink-muted">
-								{cta.label}
-							</span>
-						) : (
-							<CardLink {...cta} />
-						)}
+						<CardLink {...cta} />
 					</div>
 				)}
 			</div>
@@ -108,7 +96,7 @@ export default function Card({
 
 /**
  * The card's action. A text link rather than a button: every card on the home
- * grid carries one, and six filled buttons would leave nothing to lead the eye.
+ * grid carries one, and five filled buttons would leave nothing to lead the eye.
  * The arrow nudges on hover so the affordance survives without colour alone.
  */
 function CardLink({

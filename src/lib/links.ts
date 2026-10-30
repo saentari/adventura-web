@@ -20,7 +20,6 @@ export const LINKS = {
 	 *  fall back on, so there is no offline mode there. */
 	webApp: APP,
 	appCharacters: `${APP}/characters`,
-	appAdventures: `${APP}/adventures`,
 	appLibrary: `${APP}/library`,
 	appCommunity: `${APP}/community`,
 } as const;
