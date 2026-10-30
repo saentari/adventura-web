@@ -40,24 +40,24 @@ const satoshi = localFont({
 export const metadata: Metadata = {
 	metadataBase: new URL("https://adventura.gg"),
 	title: {
-		default: "Adventura — D&D 5e Character Creator & Solo Adventures",
+		default: "Adventura — D&D 5e Character Creator & Custom Sheets",
 		template: "%s | Adventura",
 	},
 	description:
-		"Free homebrew tools for Dungeons & Dragons 5e and 5.5e. Build characters, run solo adventures, and browse the full SRD library — in your browser, on iOS and Android.",
+		"Free homebrew tools for Dungeons & Dragons 5e and 5.5e. Build characters, customise their sheets, browse the full SRD library, read their Power Score, and bring your own homebrew — in your browser, on iOS and Android.",
 	keywords: [
 		"D&D character creator",
 		"D&D 5e character sheet",
 		"homebrew D&D tools",
-		"solo D&D adventures",
+		"D&D character power score",
 		"5e character builder",
 		"DnD SRD library",
 	],
 	alternates: { canonical: "/" },
 	openGraph: {
-		title: "Adventura — D&D 5e Character Creator & Solo Adventures",
+		title: "Adventura — D&D 5e Character Creator & Custom Sheets",
 		description:
-			"Build D&D 5e characters, run solo adventures, and browse the full SRD library. Free in your browser, on iOS and Android.",
+			"Build D&D 5e characters, customise their sheets, browse the full SRD library, and bring your own homebrew. Free in your browser, on iOS and Android.",
 		type: "website",
 		url: "https://adventura.gg",
 		siteName: "Adventura",
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Adventura — D&D 5e Character Creator & Solo Adventures",
+		title: "Adventura — D&D 5e Character Creator & Custom Sheets",
 		description:
-			"Build D&D 5e characters, run solo adventures, and browse the full SRD library.",
+			"Build D&D 5e characters, customise their sheets, browse the full SRD library, and bring your own homebrew.",
 		images: ["/images/encounter.webp"],
 	},
 };

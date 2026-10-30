@@ -3,7 +3,7 @@
 // Served at /terms.
 const adventuraTerms = `# Terms & Conditions
 
-**Last Updated:** October 22, 2026\\
+**Last Updated:** October 30, 2026\\
 **Effective Date:** March 5, 2026
 
 ## 1. Introduction
@@ -18,7 +18,7 @@ By accessing or using the App, you agree to be bound by these Terms and all appl
 
 ## 3. Description of Service
 
-Adventura is an application designed to assist players of tabletop roleplaying games. The App provides tools for character creation, character management, game tracking, and solo adventures. Solo adventures are pre-written and play offline; AI-enhanced adventures, in which artificial intelligence generates narrative content, are in development and are not available in released versions of the App. In either mode, all game mechanics are resolved deterministically by the App. The App optionally supports cloud sync and backup for users who create an account. The App uses content from the Systems Reference Document (SRD) versions 5.1 and 5.2, which are licensed under the Creative Commons Attribution 4.0 International License.
+Adventura is an application designed to assist players of tabletop roleplaying games. The App provides tools for character creation, character management, and game tracking. Versions up to 2.2.x also offer solo adventures, which are pre-written and play offline. The App optionally supports cloud sync and backup for users who create an account. The App uses content from the Systems Reference Document (SRD) versions 5.1 and 5.2, which are licensed under the Creative Commons Attribution 4.0 International License.
 
 ## 4. Eligibility and Age Restrictions
 

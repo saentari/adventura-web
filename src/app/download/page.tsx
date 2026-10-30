@@ -6,7 +6,7 @@ import { LINKS } from "@/lib/links";
 export const metadata: Metadata = {
 	title: "Download",
 	description:
-		"Get Adventura for iOS and Android, or play free in your browser. Build D&D 5e characters, run solo adventures, and browse the full SRD library.",
+		"Get Adventura for iOS and Android, or play free in your browser. Build D&D 5e characters, customise their sheets, browse the full SRD library, and bring your own homebrew.",
 	alternates: { canonical: "/download" },
 	openGraph: {
 		title: "Download Adventura — D&D 5e on iOS, Android and the web",
@@ -25,10 +25,6 @@ const PLATFORM_NOTES = [
 	{
 		title: "The browser needs an account",
 		body: "A browser has no local storage to fall back on, so the web app signs you in and keeps everything in the cloud.",
-	},
-	{
-		title: "Solo adventures travel with you",
-		body: "Adventure packs run on-device, so a campaign started on the sofa carries on wherever you are — signal or not.",
 	},
 ];
 
@@ -57,8 +53,9 @@ export default function DownloadPage() {
 						</h1>
 						<p className="mt-3 text-body text-ink-muted">
 							Free on iOS and Android, and free in your browser. Build
-							Dungeons &amp; Dragons 5e characters, run solo adventures, and
-							search the whole SRD library.
+							Dungeons &amp; Dragons 5e characters, customise their sheets,
+							search the whole SRD library, read their Power Score, and bring
+							your own homebrew.
 						</p>
 
 						<div className="mt-8 flex flex-wrap items-center gap-3">
@@ -102,7 +99,7 @@ export default function DownloadPage() {
 				</div>
 			</div>
 
-			<div className="mt-3 grid gap-3 medium:grid-cols-3">
+			<div className="mt-3 grid gap-3 medium:grid-cols-2">
 				{PLATFORM_NOTES.map((note) => (
 					<section
 						key={note.title}

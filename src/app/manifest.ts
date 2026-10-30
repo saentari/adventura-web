@@ -19,7 +19,7 @@ export default function manifest(): MetadataRoute.Manifest {
 		name: "Adventura",
 		short_name: "Adventura",
 		description:
-			"Homebrew tools for Dungeons & Dragons 5e and 5.5e: character creation, custom sheets, an SRD library, and single-player adventures.",
+			"Homebrew tools for Dungeons & Dragons 5e and 5.5e: character creation, custom sheets, an SRD library, Power Score, and homebrew content.",
 		start_url: "/",
 		display: "browser",
 		background_color: "#F5F5F5",
