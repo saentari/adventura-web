@@ -3,123 +3,129 @@
 // Served at /terms.
 const adventuraTerms = `# Terms & Conditions
 
-**Last Updated:** October 30, 2026\\
+**Last Updated:** November 5, 2026\\
 **Effective Date:** March 5, 2026
 
-## 1. Introduction
+These terms are the agreement between you and Saentari ("we", "us") about Adventura ("the app"), on
+iOS, Android and the web. By installing or using the app you agree to them. If you got the app from
+the App Store, Apple's standard licence agreement for apps
+(https://www.apple.com/legal/internet-services/itunes/dev/stdeula/) applies as well; where the two
+differ on how you may use the app, Apple's applies.
 
-Welcome to Adventura (the "App"). These Terms and Conditions ("Terms") constitute a legally binding agreement between you ("User," "you," or "your") and Saentari ("we," "our," or "us") regarding your use of the Adventura application and related services.
+Nothing in these terms takes away the rights you have as a consumer under the law where you live.
 
-Please read these Terms carefully before using the App. By downloading, installing, accessing, or using the App, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you must not use the App.
+## The app
 
-## 2. Acceptance of Terms
+Adventura helps you play tabletop roleplaying games: it creates and manages characters and keeps
+track of your games. Versions up to 2.2.x also offer solo adventures, which are pre-written and play
+offline. The app works without an account. If you create one, the app syncs and backs up your data
+across your devices.
 
-By accessing or using the App, you agree to be bound by these Terms and all applicable laws and regulations. You also agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these Terms, you are prohibited from using or accessing the App.
+## Who can use it
 
-## 3. Description of Service
+You need to be at least 13 to use the app. If you are under 18, ask a parent or guardian before you
+use it.
 
-Adventura is an application designed to assist players of tabletop roleplaying games. The App provides tools for character creation, character management, and game tracking. Versions up to 2.2.x also offer solo adventures, which are pre-written and play offline. The App optionally supports cloud sync and backup for users who create an account. The App uses content from the Systems Reference Document (SRD) versions 5.1 and 5.2, which are licensed under the Creative Commons Attribution 4.0 International License.
+## What you may do with it
 
-## 4. Eligibility and Age Restrictions
+You may install and use the app on devices you own or control, for your own personal,
+non-commercial use, under the rules of the store you got it from.
 
-### 4.1 Age Requirement
-You must be at least 13 years of age to use the App. If you are under 18, you represent that you have obtained parental or guardian consent to use the App.
+You may not copy, sell, rent or hand out the app or its art or text, change it, or take it apart to
+get at its code, except as far as the law allows you to. Don't try to get into our servers or other
+people's accounts, don't use automated tools to access the app without our permission, and don't
+use the app for anything illegal.
 
-### 4.2 Capacity to Enter Agreement
-By using the App, you represent and warrant that:
-- You are at least 13 years of age (or have parental consent if under 18)
-- You have the legal capacity to enter into these Terms
-- You will comply with all applicable laws and regulations
+## What belongs to whom
 
-## 5. User Responsibilities
+The app and everything in it belong to Saentari or to the people who licensed their work to us.
 
-You are solely responsible for:
-- All character data and content you create within the App
-- Ensuring your device meets the minimum technical requirements
-- Maintaining backups of important data
+The app includes material from the System Reference Document 5.1 ("SRD 5.1") by Wizards of the
+Coast LLC, available at https://dnd.wizards.com/resources/systems-reference-document, and from the
+System Reference Document 5.2.1 ("SRD 5.2.1") by Wizards of the Coast LLC, available at
+https://www.dndbeyond.com/srd. Both are licensed under the Creative Commons Attribution 4.0
+International License, available at https://creativecommons.org/licenses/by/4.0/legalcode. All
+trademarks are property of their respective owners.
 
-## 6. Acceptable Use Policy
+The characters you create and the custom content you import stay yours. Only import content you
+have the right to use; you are responsible for what you import.
 
-### 6.1 Permitted Use
-You agree to use the App only for lawful purposes and in accordance with these Terms. You may use the App for personal, non-commercial purposes.
+If you have an account, the app stores your characters, character portraits, custom content packs,
+sheet layouts and adventure progress on our servers so they are available on all your devices. For
+that, you allow us to store, transmit, back up and show that content, only to run the app for you.
+We don't use it for anything else, and that permission ends when you delete the content or your
+account.
 
-### 6.2 Prohibited Activities
-You agree NOT to:
-- Use the App for any illegal purpose or in violation of any applicable law
-- Attempt to gain unauthorized access to the App or its servers
-- Reverse engineer, decompile, or disassemble the App
-- Remove or alter any proprietary notices from the App
-- Use automated systems to access the App without permission
-- Upload, import, distribute, or share content through the App that you do not have the right to use
+## Premium (versions up to 2.2.x)
 
-## 7. Intellectual Property Rights
+The app is free to use. Versions up to 2.2.x also sell Premium, a subscription that adds to what the
+free version offers; the subscription screen shows what it includes. Later versions don't sell it.
 
-### 7.1 App Ownership
-The App, including its original content, features, functionality, and design, is owned by Saentari and is protected by international copyright, trademark, and other intellectual property laws.
+You need an account to subscribe. Premium belongs to that account, so it works wherever you are
+signed in.
 
-### 7.2 Third-Party Content
-This work includes material from the System Reference Document 5.1 ("SRD 5.1") by Wizards of the Coast LLC, available at https://dnd.wizards.com/resources/systems-reference-document. The SRD 5.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
+Premium renews automatically for the period you chose, at the price shown before you buy, until you
+cancel. Cancel at least 24 hours before the end of a period to stop the next renewal; you keep
+Premium until that period ends. If the price goes up, you'll be told before you are charged the new
+price, and you can cancel before then.
 
-This work includes material from the System Reference Document 5.2.1 ("SRD 5.2.1") by Wizards of the Coast LLC, available at https://www.dndbeyond.com/srd. The SRD 5.2.1 is licensed under the Creative Commons Attribution 4.0 International License, available at https://creativecommons.org/licenses/by/4.0/legalcode.
+- **In the App Store or Google Play,** Apple or Google takes the payment under their own terms. Cancel
+  in your App Store or Google Play subscriptions, and ask them for a refund: Apple at
+  https://reportaproblem.apple.com, Google through Google Play's refund page.
+- **On the web,** the checkout is hosted by RevenueCat and its payment provider takes the payment.
+  Cancel through the link in your confirmation email, or write to us. If you live in the European
+  Union or the United Kingdom, you can withdraw from a web subscription within 14 days of first
+  buying it, without giving a reason, and we refund what you paid: write to contact@saentari.com.
 
-All trademarks are property of their respective owners.
+## Other services
 
-### 7.3 License Grant
-Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to:
-- Download and install the App on your personal device
-- Access and use the App for personal, non-commercial use
+Signing in, cloud sync and storage run on Supabase. The app sends crash reports to Sentry so we can
+find and fix problems, and versions up to 2.2.x check subscriptions through RevenueCat, as described
+in the privacy policy. Your use of a store, of Sign in with Apple or Google, and of any website the
+app links to or imports content from, is under that service's own terms.
 
-### 7.4 User Content
-You retain ownership of any original character content you create within the App, and of any custom content you import into it.
+## Updates
 
-If you create an account, the App stores your characters, character portraits, custom content packs, sheet layouts, and adventure progress on our servers so that they are available across your devices. To provide that service, you grant us a limited, non-exclusive, worldwide, royalty-free licence to store, transmit, back up, and display that content solely for the purpose of operating the App for you. This licence exists only to run the service: we claim no ownership of your content, we do not use it for any other purpose, and the licence ends when you delete the content or your account.
+We may update the app to fix problems, keep it working on new devices, or change what it offers.
 
-You represent and warrant that you have the right to import, store, and use any custom content you add to the App, and that doing so does not infringe the rights of any third party. You are solely responsible for the content you import.
+## Our responsibility
 
-## 8. Disclaimer of Warranties
+We make Adventura with care, but we provide it as it is, and we can't promise it will always work
+without problems on every device or that cloud sync will never fail, so keep your own copy of
+anything you can't afford to lose. If the app doesn't do what these terms or its store page say it
+does, you have the rights the law gives you; tell us and we'll try to put it right.
 
-THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+As far as the law allows, we aren't responsible for indirect losses. None of this limits
+responsibility that the law doesn't allow to be limited, such as for something done on purpose or
+through gross negligence.
 
-We do not warrant that:
-- The App will be uninterrupted, secure, or error-free
-- Defects will be corrected
-- The App is free of viruses or other harmful components
-- The results obtained from using the App will be accurate
+## Stopping
 
-## 9. Limitation of Liability
+You can stop using the app at any time by uninstalling it. Data stored on your device stays there
+until you delete it. If you have an account, you can delete it, with everything it stores in the
+cloud, in the app under Settings → Account → Delete Account, or by writing to us. Deleting your
+account doesn't cancel a Premium subscription; cancel it as described under Premium. Records of
+subscriptions and purchases are kept in anonymised form, as the privacy policy describes.
 
-TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL SAENTARI BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO:
-- Loss of data or content
-- Loss of profits, use, goodwill, or other intangible losses
-- Damages resulting from your use or inability to use the App
-- Damages resulting from unauthorized access to your data
+## Privacy
 
-## 10. Privacy
+How the app handles your information is described in its privacy policy:
+https://adventura.gg/privacy
 
-Your privacy is important to us. Our collection and use of your information is governed by our Privacy Policy, which is incorporated into these Terms by reference.
+## Changes to these terms
 
-## 11. Termination
+We may change these terms. The date at the top says when they last changed, and the current
+version is always at https://adventura.gg/terms, linked from the app's Settings. If a change
+matters to you, we'll say so in the app or on this page before it applies.
 
-### 11.1 Termination by You
-You may stop using the App at any time by uninstalling it from your device.
+## Law and disputes
 
-### 11.2 Effect of Termination
-Upon termination, your right to use the App will immediately cease. Data stored locally will remain on your device until you delete it. If you have an account, you may delete your cloud data — including characters, portraits, custom content packs, sheet layouts, and adventure progress — through the App's settings or by contacting us before or after termination. Records of subscription and purchase events are retained in anonymised form, as described in our Privacy Policy.
+Dutch law applies to these terms. If you live in the European Union, you also keep the protection
+of the law of your own country, and you can take a dispute to the courts where you live. Before
+going to court, please write to us first, and we'll try to put it right.
 
-## 12. Changes to Terms
+## Contact
 
-We reserve the right to modify these Terms at any time. When we do, we update the "Last Updated" date at the top of these Terms. The current version is always at https://adventura.gg/terms, linked from the App's Settings. Your continued use of the App after changes constitutes acceptance of the modified Terms.
-
-## 13. Governing Law
-
-These Terms shall be governed by and construed in accordance with the laws of the Netherlands, without regard to its conflict of law provisions.
-
-## 14. Contact Information
-
-If you have any questions about these Terms, please contact us:
-
-- **Email:** contact@saentari.com
-
-*By using the Adventura application, you acknowledge that you have read and understood these Terms and Conditions and agree to be bound by them.*`;
+Saentari, contact@saentari.com`;
 
 export default adventuraTerms;
